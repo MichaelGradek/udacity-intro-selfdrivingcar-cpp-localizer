@@ -148,7 +148,6 @@ bool test_initialize() {
 }
 
 bool test_move() {
-	bool right = true;
 	vector < vector <float> > in, out, correct;
 	in = zeros(3,3);
 	in[2][2] = 1.0;
@@ -163,7 +162,7 @@ bool test_move() {
 
 	out = move(dy, dx, in, blurring);
 
-	/*bool right = close_enough(correct, out);
+	bool right = close_enough(correct, out);
 
 	if (right) {
 		cout << "! - move function worked correctly with zero blurring\n";
@@ -176,7 +175,7 @@ bool test_move() {
 		show_grid(out);
 		cout << "\nWhen it should have returned the following:\n";
 		show_grid(correct);
-	}*/
+	}
 	return right;
 }
 

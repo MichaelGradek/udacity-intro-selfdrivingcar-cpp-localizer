@@ -140,7 +140,14 @@ vector < vector <float> > blur(vector < vector < float> > grid, float blurring) 
 				for(int dy=-1; dy<=1; dy++){
 					float multiplier = window[dx + 1][dy + 1];
 					int newI = (i + dy) % height;
+					if (newI < 0) {
+						newI += width;
+					}
+					
 					int newJ = (j + dx) % width;
+					if (newJ < 0) {
+						newJ += height;
+					}
 
 					newGrid[newI][newJ] += multiplier * cellValue;
 				}

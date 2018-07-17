@@ -159,15 +159,21 @@ vector< vector <float> > move(int dy,
 	
 	vector< vector<float> > newGrid(height, vector<float>(width));
 
-	/*for (int i=0; i<beliefs.size(); i++){
-		for(int j=0; j<beliefs[i].size(); j++){
+	for (int i=0; i<beliefs.size(); i++){
+		for (int j=0; j<beliefs[i].size(); j++){
 			int newI = (i + dy) % width;
+			if (newI < 0) {
+				newI += width;
+			}
+			
 			int newJ = (j + dx) % height;
+			if (newJ < 0) {
+				newJ += height;
+			}
 
 			newGrid[newJ][newI] = beliefs[i][j];
 		}
-	}*/
+	}
 
 	return blur(newGrid, blurring);
-	//return newGrid;
 }
